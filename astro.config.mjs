@@ -5,6 +5,6 @@ import purgecss from "astro-purgecss";
 // https://astro.build/config
 export default defineConfig({
   integrations: [purgecss()],
-  site: "https://accept-school.ru/i",
+  site: "https://accept-school.ru",
   base: "/",
 });
