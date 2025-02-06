@@ -1,0 +1,63 @@
+<section>
+  <div class="inner">
+    <div class="item">
+      <h2>Мощный</h2>
+      <p>
+        Создавайте задачи, проводите уроки и организуйте турниры - не тратьте
+        время на рутину. Accept всё сделает за Вас.
+      </p>
+    </div>
+    <div class="item">
+      <h2>Гибкий</h2>
+      <p>
+        Легко интегрируйте Accept в налаженный образовательный процесс:
+        используйте только нужные Вам возможности.
+      </p>
+    </div>
+    <div class="item">
+      <h2>Знакомый</h2>
+      <p>
+        Попробуйте Accept уже сегодня! Простой и понятный интерфейс позволяет
+        использовать систему без специальной подготовки.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    margin: 6rem 0 10rem 0;
+  }
+  .inner {
+    padding: 0 6rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    gap: clamp(4rem, 8vw, 8rem);
+  }
+  @media screen and (max-width: 50rem) {
+    .section {
+      margin: 2rem 0;
+    }
+    .inner {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+
+  .item {
+    /* flex: 1 1 0; */
+  }
+
+  .item p {
+    text-align: start;
+  }
+  .item h2 {
+    margin-bottom: 1rem;
+    text-align: start;
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en" class="theme-dark">
+  <head>
+    <MainHead title={title} description={description} />
+  </head>
+  <body>
+    <Nav />
+    <slot />
+    <Footer />
+
+    <script>
+      // Add “loaded” class once the document has completely loaded.
+      addEventListener("load", () =>
+        document.documentElement.classList.add("loaded")
+      );
+    </script>
+
+    <style>
+      :root {
+        --primary: #2ea3f2;
+        --primary-opacity: #2ea3f2bb;
+        --secondary: #1c7ed6;
+        --_placeholder-bg: linear-gradient(transparent, transparent);
+        /* --bg-image-main-top: linear-gradient(18deg, #fff, #fff, #2ea3f2); */
+        --bg-image-main-top: radial-gradient(
+          var(--primary-opacity) 0%,
+          transparent 70%
+        );
+
+        --bg-image-main-bottom: linear-gradient(
+          180deg,
+          var(--light),
+          var(--light),
+          var(--primary-opacity)
+        );
+        --bg-color: var(--light);
+        background: var(--bg-color);
+        transition: background 0.7s;
+      }
+
+      :root.theme-dark {
+        --primary-opacity: #2ea3f288;
+
+        --bg-image-main-bottom: linear-gradient(
+          180deg,
+          var(--dark),
+          var(--dark),
+          var(--primary-opacity)
+        );
+        --bg-color: var(--dark);
+        transition: background 0.7s;
+      }
+
+      /* These backgrounds are displayed below the fold, so we lazy load them
+			   once the `.loaded` class has been set.  */
+      :root.loaded {
+      }
+      :root.loaded.theme-dark {
+      }
+    </style>
+  </body>
+</html>
